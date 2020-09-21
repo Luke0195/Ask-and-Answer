@@ -17,3 +17,4 @@ Requisitos -> Ter o node instalado na máquina.
 2º Passo Extraia os arquivos na pasta selecionada.
 
 3º Passo: utilize o comando npm install( esse comando irá instalar todas as dependências necessarias para executar a aplicação).
+
