@@ -8,6 +8,10 @@ app.get('/', (request, response)=>{
   return response.render('index');
 });
 
+app.get('/askQuestion', (request,response)=>{
+  return response.render('askQuestion');
+})
+
 app.listen(3333, ()=>{
   console.log('App rodando ');
   
