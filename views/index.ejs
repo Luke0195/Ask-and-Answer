@@ -15,7 +15,14 @@
       <h3> Teste realizado com erro </h3>
  
     <% } %>
-     
+
+    <h1> Lista de produtos </h1>
+    <% produtos.forEach(function(produto){ %>
+      <%=produto.nome %>
+      <%=produto.preco %>
+   <% }) %>
+
+    
 
 </body>
 </html>
