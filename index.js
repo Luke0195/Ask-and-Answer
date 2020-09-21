@@ -3,8 +3,11 @@ const app = express();
 
 app.set('view engine', 'ejs'); // Estamos informando ao express que o ejs será responsável pelas views.
 
-app.get('/', (request, response)=>{
-  return response.render('index');
+app.get('/:nome/:lang', (request, response)=>{
+    const { nome , lang} = request.params;
+  return response.render('index', {
+    nome, lang
+  });
 });
 
 app.listen(3333, ()=>{
