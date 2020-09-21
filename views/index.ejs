@@ -8,5 +8,14 @@
 <body>
      <h1> Nome: <%=nome %></h1>
      <h2> Linguagem: <%=lang %></h2>
+    
+     <% if(msg){ %>
+        <h3> Teste realizado com sucesso </h3>
+    <%} else{%>
+      <h3> Teste realizado com erro </h3>
+ 
+    <% } %>
+     
+
 </body>
 </html>

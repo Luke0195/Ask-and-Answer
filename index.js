@@ -5,8 +5,10 @@ app.set('view engine', 'ejs'); // Estamos informando ao express que o ejs será 
 
 app.get('/:nome/:lang', (request, response)=>{
     const { nome , lang} = request.params;
+    const exibirMsg = false;
   return response.render('index', {
-    nome, lang
+    nome, lang, 
+    msg: exibirMsg
   });
 });
 
