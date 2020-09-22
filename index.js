@@ -18,9 +18,14 @@ app.use(express.static('public')); // Isso vai me permitir trabalhar com arquivo
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-app.get('/', (request, response)=>{
-  return response.render('index');
-});
+app.get('/', (request, response)=>{  
+   pergunta.findAll({raw:true, order:[['id', 'desc']]}).then(perguntas =>{ // Usamos o order para fazer a ordernação 
+     response.render('index',{
+       perguntas:perguntas
+     })
+   })
+  });
+ 
 
 app.get('/askquestion', (request,response)=>{
  
