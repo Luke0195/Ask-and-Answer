@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');  // é uma extensão que nós permite capturar as informações do formulario para javascript
 const connection = require('./database/database');
+const perguntaMode = require('./database/Pergunta');
 
 connection
 .authenticate()
