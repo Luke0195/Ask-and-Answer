@@ -1,7 +1,16 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');  // é uma extensão que nós permite capturar as informações do formulario para javascript
+const connection = require('./database/database');
 
+connection
+.authenticate()
+.then(()=>{
+  console.log('Conexão feita com o banco de dados');
+})
+.catch((msgErro)=>{
+  console.log(msgErro)
+});
 
 app.set('view engine', 'ejs'); // Estamos informando ao express que o ejs será responsável pelas views.n
 app.use(express.static('public')); // Isso vai me permitir trabalhar com arquivos estaticos no express(os arquivos estaticos são arquivos que o back-end não ira processar);
