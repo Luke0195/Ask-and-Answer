@@ -16,3 +16,5 @@ const Pergunta = connection.define('pergunta',{
 Pergunta.sync({force:false}).then(() =>{
   console.log('Model criado com suceso ');
 });
+
+module.exports = Pergunta;
