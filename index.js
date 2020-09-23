@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');  // é uma extensão que nós permite capturar as informações do formulario para javascript
 const connection = require('./database/database');
 const pergunta= require('./database/Pergunta');
+const { response } = require('express');
 
 connection
 .authenticate()
@@ -32,6 +33,19 @@ app.get('/askquestion', (request,response)=>{
   return response.render('askQuestion');
 });
 
+app.get('/question/:id', (request, reponse)=>{
+  const{ id } = request.params;
+  pergunta.findOne({
+    where: { id: id}
+  }).then(pergunta =>{
+     if(pergunta != undefined){
+      reponse.render('question');
+     }else{
+      reponse.redirect('/');
+     }
+  })
+});
+
 app.post('/savequestion', (request,response)=>{
  const { titulo, descricao } = request.body 
   pergunta.create({// representa o método insert
@@ -44,7 +58,7 @@ app.post('/savequestion', (request,response)=>{
   
 });
 
-app.listen(3333, ()=>{
+app.listen(3332, ()=>{
   console.log('App rodando ');
   
 })
